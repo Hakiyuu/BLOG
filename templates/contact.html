@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+        <form action="{{url_for('Contact')}}" method="POST">
+            <div class="form-group">
+                <label for="name">Username</label>
+                <input type="text" name="name" class="form-control">
+            </div>
+
+            <div class="form-group">
+            <label for="email">Email</label>
+            <input type="text" name="email" class="form-control">
+            </div>
+
+            <div class="form-group">
+                <label for="messages">Messages</label>
+                <textarea name="messages" rows="6" cols="75"></textarea>
+            </div>
+
+            <div class="form-group">
+                <label for="priority">Priority</label>
+                <select>
+                    <option value="Urgent">Select Priority Level:</option>
+                    <option value="Nuclear">Nuclear</option>
+                    <option value="Very urgent">Very urgent</option>
+                </select>
+            </div>
+
+
+             <div class="form-group">
+                    <input type="submit" value="Send" class="btn btn-outline-dark"/>
+             </div>
+
+            <div class="form-group">
+                <h6>You can also contact us on twitter@ugonna_006</h6>
+            </div>
+        </form>
+
+{% endblock %}

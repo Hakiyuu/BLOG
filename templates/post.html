@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="form-group"><h1>Post</h1></div><br>
+<form action="/post" method="POST">
+    <div class="mb-3">
+        <label class="form-group" for="title">Title</label>
+        <input class="form-control" name="title" id="title" placeholder="Title" type="text">
+    </div><hr>
+    <div class="mb-3">
+        <label class="form-group" for="content">Write Post</label>
+        <textarea class="form-control" name="content" id="content" placeholder="What's on your mind?" rows="10"></textarea>
+    </div>
+    <input type="submit" value="upload" class="but btn-outline-dark"/>
+</form>
+
+{% endblock %}

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="{{url_for('static',filename= 'main.css')}}"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <title>P's Blog</title>
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <a href=""><h1>LITTLE GARDEN</h1></a>
+      </div>
+
+  <div class="container-fluid">
+    {% if current_user.is_authenticated %}
+         <a class="navbar-brand" href="{{url_for('index')}}">Home</a>
+          <a href="{{url_for('post')}}">Create Post</a>
+          <a href="{{url_for('About')}}">About</a>
+          <a href="{{url_for('Contact')}}">Contact us</a>
+          <a href="{{url_for('logout')}}">Logout</a>
+    {% else %}
+          <a href="{{url_for('index')}}">Home</a>
+          <a href="{{url_for('register')}}">Signup</a>
+          <a href="{{url_for('login')}}">Login</a>
+          <a href="{{url_for('About')}}">About</a>
+          <a href="{{url_for('Contact')}}">Contact us</a>
+        {% endif %}
+       </div>
+    </header>
+    <main class="container">
+        {% with messages = get_flashed_messages(with_categories = True)%}
+          {% if messages %}
+            {% for category, message in messages %}
+             <div class="alert-{{category}}">
+                 {{ message }}
+             </div>
+            {% endfor %}
+        {% endif %}
+        {% endwith %}
+      {% block content %}
+      {% endblock content %}
+    </main>
+    <footer>
+      <p class="footer">
+        &copy; Paschal_Okonkwo, Altschool_Project <script>document.write(new Date().getFullYear());</script>
+      </p>
+    </footer>
+  </body>
+</html>

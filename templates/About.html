@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <form action="{{url_for('About')}}" method="POST">
+
+        <h5> LITTLE GARDEN is a gender neutral blog that aims to give you a safe space
+            to tell your story and other people's story .
+            It's simple , easy , efficient to use and accessible to everyone unlike the context of the name .
+            We'd love you to support us by signing up
+           <a href="{{url_for('register')}}">here</a> , your ONE PIECE awaits you .
+         </h5><br>
+
+
+
+
+        <div class="form-group">
+        <small>
+            <h6><p>Already have an account ? <a href="{{url_for('login')}}">sign in</a></p></h6>
+        </small>
+        </div>
+
+
+     </form>
+
+
+{% endblock content %}
